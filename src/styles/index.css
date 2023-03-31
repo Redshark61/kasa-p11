@@ -590,6 +590,10 @@
   font-size: 14px;
 }
 
+.text-24 {
+  font-size: 24px;
+}
+
 .text-48 {
   font-size: 48px;
 }
@@ -6564,6 +6568,10 @@ a:visited {
 
 .w-210 {
   width: 210px;
+}
+
+.w-120 {
+  width: 120px;
 }
 
 .w-250 {

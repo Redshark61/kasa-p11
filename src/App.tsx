@@ -5,18 +5,21 @@ import Base from "./components/Base";
 import Nav from "./components/Nav";
 import {LINKS} from "./constants";
 import Location from "./pages/Location";
+import Footer from "./components/Footer";
 
 function App() {
 
 	return (
-		<Base>
-			<Nav>
-				<Routes>
-					<Route path={LINKS.home.to} element={<Home/>}/>
-					<Route path={LINKS.location.to} element={<Location/>}/>
-				</Routes>
-			</Nav>
-		</Base>
+		<Footer>
+			<Base>
+				<Nav>
+					<Routes>
+						<Route path={LINKS.home.to} element={<Home/>}/>
+						<Route path={LINKS.location.to} element={<Location/>}/>
+					</Routes>
+				</Nav>
+			</Base>
+		</Footer>
 	)
 }
 
