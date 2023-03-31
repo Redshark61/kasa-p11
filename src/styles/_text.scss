@@ -1,0 +1,38 @@
+@use './variables' as var;
+
+.text-18 {
+	font-size: 18px;
+}
+
+.text-48 {
+	font-size: 48px;
+}
+
+.text-36 {
+	font-size: 36px;
+}
+
+.list-none {
+	list-style: none;
+}
+
+a:visited {
+	color: inherit;
+}
+
+
+@each $color, $value in var.$text-colors {
+	.text-#{$color} {
+		color: $value;
+	}
+
+	.bg-#{$color} {
+		background-color: $value;
+	}
+}
+
+@each $weight, $value in var.$weight {
+	.font-#{$weight} {
+		font-weight: $value;
+	}
+}

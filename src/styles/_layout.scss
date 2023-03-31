@@ -1,0 +1,107 @@
+@use './variables' as var;
+
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.inset-0 {
+	inset: 0;
+}
+
+.z-0 {
+	z-index: 0;
+}
+
+.z-1 {
+	z-index: 1;
+}
+
+.z-2 {
+	z-index: 2;
+}
+
+.z--1 {
+	z-index: -1;
+}
+
+.radius-0 {
+	border-radius: 0;
+}
+
+.radius-15 {
+	border-radius: 15px;
+}
+
+.radius-25 {
+	border-radius: 25px;
+}
+
+.radius-full {
+	border-radius: 9999px;
+}
+
+@each $position, $value in var.$justify-positions {
+	.justify-#{$position} {
+		justify-content: $value;
+	}
+}
+
+@each $position, $value in var.$items-positions {
+	.items-#{$position} {
+		align-items: $value;
+	}
+}
+
+@each $position, $value in var.$background-position-y {
+	.bg-pos-y-#{$position} {
+		background-position-y: $value;
+	}
+
+	.bg-pos-#{$position} {
+		background-position: $value;
+	}
+}
+
+@each $position, $value in var.$background-position-x {
+	.bg-pos-x-#{$position} {
+		background-position-x: $value;
+	}
+}
+
+@each $size, $value in var.$background-size {
+	.bg-size-#{$size} {
+		background-size: $value;
+	}
+}
+
+@for $i from 0 through 100 {
+	.gap-#{$i} {
+		gap: #{$i}px;
+	}
+
+	$i: $i + 10;
+}
