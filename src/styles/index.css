@@ -23,6 +23,29 @@
   position: absolute;
 }
 
+.bottom-0 {
+  bottom: 0;
+}
+
+.absolute-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.absolute-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .relative {
   position: relative;
 }
@@ -49,6 +72,10 @@
 
 .radius-0 {
   border-radius: 0;
+}
+
+.radius-10 {
+  border-radius: 10px;
 }
 
 .radius-15 {
@@ -557,6 +584,10 @@
 
 .text-18 {
   font-size: 18px;
+}
+
+.text-14 {
+  font-size: 14px;
 }
 
 .text-48 {
@@ -6521,6 +6552,14 @@ a:visited {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.reset-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
 }
 
 .w-210 {

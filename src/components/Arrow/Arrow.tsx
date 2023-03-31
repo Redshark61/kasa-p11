@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 
 interface Props {
 	width?: number;
@@ -12,15 +12,15 @@ interface Props {
 }
 
 export default function Arrow({
-	width = 80,
-	height = 80,
-	color = "000",
-	thickness = 10,
-	direction = "right",
-	className,
-	style = {},
-	onClick,
-}: Props) {
+								  width = 80,
+								  height = 80,
+								  color = "fff",
+								  thickness = 10,
+								  direction = "right",
+								  className,
+								  style = {},
+								  onClick,
+							  }: Props) {
 	const rotation =
 		direction === "left" ? 45 : direction === "right" ? 225 : direction === "up" ? 135 : -135;
 	const [transform, setTransform] = React.useState<string>(`rotate(${rotation}deg)`);
@@ -33,7 +33,7 @@ export default function Arrow({
 	}, []);
 
 	return (
-		<div
+		<button
 			style={{
 				width: width,
 				height: height,
@@ -43,8 +43,8 @@ export default function Arrow({
 				cursor: "pointer",
 				...style,
 			}}
-			className={className}
+			className={`reset-button ${className}`}
 			onClick={onClick}
-		></div>
+		></button>
 	);
 }
