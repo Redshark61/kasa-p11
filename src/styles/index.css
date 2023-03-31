@@ -6574,6 +6574,10 @@ a:visited {
   width: 100%;
 }
 
+.w-half {
+  width: 50%;
+}
+
 .h-full {
   height: 100%;
 }
