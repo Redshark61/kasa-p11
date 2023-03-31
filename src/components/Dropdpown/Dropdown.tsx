@@ -4,16 +4,18 @@ import Arrow from "../Arrow";
 interface Props {
 	children: React.ReactNode
 	title: string
+	className?: string
 }
 
-export default function Dropdown({children, title}: Props) {
+export default function Dropdown({children, title, className = ""}: Props) {
 	const [open, setOpen] = useState(false);
 	return (
-		<div className="w-half">
+		<div className={className}>
 			<button
-				className="z-1 relative bg-primary flex justify-between items-center px-20 py-15 w-full text-white radius-10"
+				className="z-1 text-18 relative bg-primary flex justify-between items-center px-20 py-15 w-full text-white radius-10"
 				style={{
 					border: "none",
+					cursor: "pointer",
 				}}
 				onClick={() => setOpen((prevState) => !prevState)}
 			>

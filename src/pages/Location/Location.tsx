@@ -20,10 +20,10 @@ export default function Location() {
 			<h2 className={"font-300 text-18 text-primary"}>{location.location}</h2>
 			<Tags tags={location.tags}/>
 			<div className={"flex gap-80 mt-25"}>
-				<Dropdown title={"Description"}>
+				<Dropdown title={"Description"} className={"w-half"}>
 					<p style={{lineHeight: "25px"}}>{location.description}</p>
 				</Dropdown>
-				<Dropdown title={"Équipements"}>
+				<Dropdown title={"Équipements"} className={"w-half"}>
 					<ul style={{lineHeight: "25px"}}>
 						{location.equipments.map(equipment => (
 							<li className={"list-none"} key={equipment}>{equipment}</li>

@@ -3,11 +3,12 @@ import LocationData from "../../data/logements.json";
 import {LocationType} from "../../types";
 import Card from "../Card";
 import {Link} from "react-router-dom";
+import className from './index.module.css'
 
 export default function Locations() {
 	return (
-		<div style={{backgroundColor: "#F6F6F6", paddingTop: 55}}
-			 className={"mt-40 radius-25 flex flex-wrap px-50 gap-50"}>
+		<div
+			className={`mt-40 radius-25 flex gap-50 ${className.card}`}>
 			{LocationData.map((location: LocationType) => {
 				return (
 					<Link key={location.id} to={`/location/${location.id}`} style={{textDecoration: 'none'}}>

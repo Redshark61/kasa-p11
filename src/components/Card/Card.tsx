@@ -1,4 +1,5 @@
 import Overlay from "../Overlay";
+import className from './index.module.css'
 
 interface CardProps {
 	title: string;
@@ -7,11 +8,11 @@ interface CardProps {
 
 export default function Card({title, image}: CardProps) {
 	return (
-		<div className={"radius-15 bg-pos-center flex justify-start items-end relative overflow-hidden"} style={{
-			width: 340,
-			height: 340,
-			backgroundImage: `url(${image})`,
-		}}>
+		<div
+			className={`${className.card} radius-15 bg-pos-center flex justify-start items-end relative overflow-hidden`}
+			style={{
+				backgroundImage: `url(${image})`,
+			}}>
 			<Overlay
 				styles={{
 					background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%)",

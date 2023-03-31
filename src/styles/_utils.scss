@@ -1,62 +1,65 @@
+@use 'sass:math';
+
 @for $i from 10 through 100 {
+	$value: #{math.round($i / 1440 * 1000) / 10}vw;
 	.p-#{$i} {
-		padding: #{$i}px;
+		padding: $value;
 	}
 
 	.py-#{$i} {
-		padding-top: #{$i}px;
-		padding-bottom: #{$i}px;
+		padding-top: $value;
+		padding-bottom: $value;
 	}
 
 	.pt-#{$i} {
-		padding-top: #{$i}px;
+		padding-top: $value;
 	}
 
 	.pb-#{$i} {
-		padding-bottom: #{$i}px;
+		padding-bottom: $value;
 	}
 
 	.pl-#{$i} {
-		padding-left: #{$i}px;
+		padding-left: $value;
 	}
 
 	.pr-#{$i} {
-		padding-right: #{$i}px;
+		padding-right: $value;
 	}
 
 	.px-#{$i} {
-		padding-left: #{$i}px;
-		padding-right: #{$i}px;
+		padding-left: $value;
+		padding-right: $value;
 	}
 
 	.m-#{$i} {
-		margin: #{$i}px;
+		margin: $value;
 	}
 
 	.my-#{$i} {
-		margin-top: #{$i}px;
-		margin-bottom: #{$i}px;
+		margin-top: $value;
+		margin-bottom: $value;
 	}
 
 	.mx-#{$i} {
-		margin-left: #{$i}px;
-		margin-right: #{$i}px;
+		margin-left: $value;
+		margin-right: $value;
 	}
 
 	.mt-#{$i} {
-		margin-top: #{$i}px;
+		margin-top: $value;
 	}
 
 	.mb-#{$i} {
-		margin-bottom: #{$i}px;
+		margin-bottom: $value;
 	}
 
 	.ml-#{$i} {
-		margin-left: #{$i}px;
+		margin-left: $value;
 	}
 
 	.mr-#{$i} {
-		margin-right: #{$i}px;
+		margin-right: $value;
 	}
 	$i: $i + 10;
 }
@@ -69,6 +72,11 @@
 	$i: $i + 10;
 }
 
+.py-5 {
+	padding-top: .3vw;
+	padding-bottom: .3vw;
+}
+
 .reset-button {
 	background: none;
 	border: none;
@@ -78,15 +86,15 @@
 }
 
 .w-210 {
-	width: 210px;
+	width: max(145px, 14.5vw);
 }
 
 .w-120 {
-	width: 120px;
+	width: max(120px, 8.3vw);
 }
 
 .w-250 {
-	width: 250px;
+	width: max(115px, 17.3vw);
 }
 
 .w-full {
@@ -95,6 +103,10 @@
 
 .w-half {
 	width: 50%;
+}
+
+.h-220 {
+	height: max(110px, 15.3vw);
 }
 
 .h-full {
@@ -115,4 +127,10 @@
 
 .overflow-scroll {
 	overflow: scroll;
+}
+
+@mixin media {
+	@media (max-width: 768px) {
+		@content;
+	}
 }

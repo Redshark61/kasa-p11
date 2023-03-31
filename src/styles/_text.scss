@@ -1,23 +1,23 @@
 @use './variables' as var;
 
 .text-18 {
-	font-size: 18px;
+	font-size: max(12px, 1.25vw);
 }
 
 .text-14 {
-	font-size: 14px;
+	font-size: max(10px, .9vw);
 }
 
 .text-24 {
-	font-size: 24px;
+	font-size: max(12px, 1.7vw);
 }
 
 .text-48 {
-	font-size: 48px;
+	font-size: max(24px, 3.3vw);
 }
 
 .text-36 {
-	font-size: 36px;
+	font-size: max(18px, 2.5vw);
 }
 
 .list-none {

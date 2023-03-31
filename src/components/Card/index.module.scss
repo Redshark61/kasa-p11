@@ -1,0 +1,14 @@
+@use '../../styles/utils';
+
+.card {
+	width: 23.6vw;
+	aspect-ratio: 1;
+	@include utils.media {
+		width: 100%;
+
+		h2 {
+			font-size: 18px;
+			padding: 15px 20px;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@use '../../styles/utils' as utils;
+
+.hero {
+	@include utils.media{
+		h1 {
+			margin-left: 16px;
+		}
+	}
+}

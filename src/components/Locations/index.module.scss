@@ -1,0 +1,16 @@
+@use '../../styles/utils';
+
+.card {
+	background-color: #F6F6F6;
+	padding-top: 55px;
+	padding-inline: 3.5vw;
+	flex-wrap: wrap;
+
+	@include utils.media {
+		background-color: transparent;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		padding-inline: 0;
+		padding-top: 20px;
+	}
+}

@@ -1,4 +1,5 @@
 @use './variables' as var;
+@use 'sass:math';
 
 .flex {
 	display: flex;
@@ -84,7 +85,7 @@
 }
 
 .radius-25 {
-	border-radius: 25px;
+	border-radius: max(10px, 1.7vw);
 }
 
 .radius-full {
@@ -127,7 +128,7 @@
 
 @for $i from 0 through 100 {
 	.gap-#{$i} {
-		gap: #{$i}px;
+		gap: #{math.round(($i / 1440 * 1000)) / 10}vw;
 	}
 
 	$i: $i + 10;
