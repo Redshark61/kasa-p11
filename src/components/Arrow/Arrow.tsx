@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import {Property} from "csstype";
 
 interface Props {
 	width?: number;
@@ -9,6 +10,7 @@ interface Props {
 	className?: string;
 	style?: React.CSSProperties;
 	onClick?: () => void;
+	isButton?: boolean;
 }
 
 export default function Arrow({
@@ -20,10 +22,28 @@ export default function Arrow({
 								  className,
 								  style = {},
 								  onClick,
+								  isButton = true,
 							  }: Props) {
-	const rotation =
-		direction === "left" ? 45 : direction === "right" ? 225 : direction === "up" ? 135 : -135;
-	const [transform, setTransform] = React.useState<string>(`rotate(${rotation}deg)`);
+	let rotation = 0
+	if (direction === "down") {
+		rotation = 135;
+	} else if (direction === "left") {
+		rotation = 45;
+	} else if (direction === "right") {
+		rotation = 225;
+	} else if (direction === "up") {
+		rotation = 315;
+	}
+	const [transform, setTransform] = React.useState<Property.Transform>(`rotate(${rotation}deg)`);
+	const inlineStyle: React.CSSProperties = {
+		width: width,
+		height: height,
+		borderTop: `${thickness}px solid #${color}`,
+		borderRight: `${thickness}px solid #${color}`,
+		transform: transform,
+		cursor: "pointer",
+		...style,
+	}
 
 	useEffect(() => {
 		if (style?.transform) {
@@ -32,19 +52,19 @@ export default function Arrow({
 		}
 	}, []);
 
-	return (
-		<button
-			style={{
-				width: width,
-				height: height,
-				borderTop: `${thickness}px solid #${color}`,
-				borderRight: `${thickness}px solid #${color}`,
-				transform: transform,
-				cursor: "pointer",
-				...style,
-			}}
-			className={`reset-button ${className}`}
-			onClick={onClick}
-		></button>
-	);
+	return <>
+		{isButton ? (
+			<button
+				style={inlineStyle}
+				className={`reset-button ${className}`}
+				onClick={onClick}
+			></button>) : (
+			<div
+				style={inlineStyle}
+				className={`${className}`}
+				onClick={onClick}
+			></div>
+		)}
+	</>
+
 }
