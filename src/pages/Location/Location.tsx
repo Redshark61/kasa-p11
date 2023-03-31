@@ -3,13 +3,14 @@ import LocationData from "../../data/logements.json";
 import Carousel from "../../components/Carousel";
 import Tags from "../../components/Tags";
 import Dropdown from "../../components/Dropdpown";
+import Error404 from "../404";
 
 export default function Location() {
 	const {id} = useParams<{ id: string }>()
 	const location = LocationData.find(location => location.id === id)
 
 	if (!location) {
-		return <p>Location not found</p>
+		return <Error404/>
 	}
 
 	return (
