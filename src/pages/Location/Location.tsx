@@ -1,5 +1,4 @@
-import {useParams} from "react-router-dom";
-import LocationData from "../../data/logements.json";
+import {useLoaderData, useParams} from "react-router-dom";
 import Carousel from "../../components/Carousel";
 import Tags from "../../components/Tags";
 import Dropdown from "../../components/Dropdpown";
@@ -7,10 +6,13 @@ import Error404 from "../404";
 import Rating from "../../components/Rating";
 import ProfileThumbnail from "../../components/ProfileThumbnail";
 import className from './index.module.css'
+import {LocationType} from "../../types";
 
 export default function Location() {
 	const {id} = useParams<{ id: string }>()
-	const location = LocationData.find(location => location.id === id)
+	const locationData = useLoaderData() as LocationType[]
+	console.log(locationData)
+	const location = locationData.find(location => location.id === id)
 	if (!location) {
 		return <Error404/>
 	}

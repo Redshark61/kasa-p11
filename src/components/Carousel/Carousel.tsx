@@ -1,13 +1,33 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CarouselArrows} from "./CarouselArrows";
 import className from './index.module.css'
+import Spinner from "../Spinner";
 
 interface CarouselProps {
 	pictures: string[];
 }
 
+
 export default function Carousel({pictures}: CarouselProps) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
+	const [isLoading, setIsLoading] = useState(true)
+
+	const cacheImages = async (images: string[]) => {
+		const promises = images.map((image) => {
+			return new Promise((resolve, reject) => {
+				const img = new Image()
+				img.src = image
+				img.onload = resolve
+				img.onerror = reject
+			})
+		})
+		await Promise.all(promises)
+		setIsLoading(false)
+	}
+
+	useEffect(() => {
+		cacheImages(pictures)
+	}, [pictures])
 
 	const handleClick = ({delta}: { delta: 1 | -1 }) => {
 		if (currentImageIndex === pictures.length - 1 && delta === 1) {
@@ -19,12 +39,20 @@ export default function Carousel({pictures}: CarouselProps) {
 		}
 	}
 
+	if (isLoading) {
+		return <Spinner/>
+	}
+
 	return (
-		<div style={{backgroundImage: `url(${pictures[currentImageIndex]})`}}
-			 className={`w-full bg-pos-center relative bg-size-cover radius-25 ${className.carrousel}`}>
+		<div className={`w-full bg-pos-center relative bg-size-cover radius-25 ${className.carrousel}`}>
+			<img src={pictures[currentImageIndex]} alt={"location"} className={"w-full h-full radius-25"}
+				 style={{objectFit: "cover"}}/>
 			<div
 				className={"w-full h-full absolute radius-25"}
-				style={{backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%)"}}
+				style={{
+					top: 0,
+					backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%)"
+				}}
 			/>
 			{pictures.length > 1 &&
 				<>
