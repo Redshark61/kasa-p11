@@ -128,9 +128,3 @@
 .overflow-scroll {
 	overflow: scroll;
 }
-
-@mixin media {
-	@media (max-width: 768px) {
-		@content;
-	}
-}

@@ -2,6 +2,7 @@ import React from "react";
 import logo from "/LOGO.svg";
 import {LINKS} from "../../constants";
 import {NavLink} from "react-router-dom";
+import className from './index.module.css'
 
 interface Props {
 	children?: React.ReactNode
@@ -10,7 +11,7 @@ interface Props {
 export default function Nav({children = undefined}: Props) {
 	return (
 		<>
-			<nav className={"flex justify-between py-40"}>
+			<nav className={`${className.nav} flex justify-between py-40`}>
 				<NavLink to={LINKS.home.to}>
 					<img src={logo} alt="logo" className={"w-210"}/>
 				</NavLink>

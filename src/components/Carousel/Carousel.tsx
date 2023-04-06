@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {CarouselArrows} from "./CarouselArrows";
+import className from './index.module.css'
 
 interface CarouselProps {
 	pictures: string[];
@@ -19,13 +20,11 @@ export default function Carousel({pictures}: CarouselProps) {
 	}
 
 	return (
-		<div style={{
-			height: 415,
-			backgroundImage: `url(${pictures[currentImageIndex]})`
-		}} className={"w-full bg-pos-center relative bg-size-cover radius-25"}>
+		<div style={{backgroundImage: `url(${pictures[currentImageIndex]})`}}
+			 className={`w-full bg-pos-center relative bg-size-cover radius-25 ${className.carrousel}`}>
 			<div
 				className={"w-full h-full absolute radius-25"}
-				style={{backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,6) 100%)"}}
+				style={{backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.5) 100%)"}}
 			/>
 			{pictures.length > 1 &&
 				<>

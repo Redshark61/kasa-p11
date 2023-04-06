@@ -6623,4 +6623,8 @@ a:visited {
   color: inherit;
 }
 
+body, html, #root {
+  height: 100%;
+}
+
 /*# sourceMappingURL=index.css.map */

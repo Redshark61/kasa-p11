@@ -1,9 +1,7 @@
 @use '../../styles/mixin';
 
-.hero {
+.nav {
 	@include mixin.media {
-		h1 {
-			margin-left: 16px;
-		}
+		padding-bottom: 30px;
 	}
 }

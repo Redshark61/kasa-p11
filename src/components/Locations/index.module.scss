@@ -1,4 +1,4 @@
-@use '../../styles/utils';
+@use '../../styles/mixin';
 
 .card {
 	background-color: #F6F6F6;
@@ -6,7 +6,7 @@
 	padding-inline: 3.5vw;
 	flex-wrap: wrap;
 
-	@include utils.media {
+	@include mixin.media {
 		background-color: transparent;
 		flex-direction: column;
 		flex-wrap: nowrap;

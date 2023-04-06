@@ -1,28 +1,25 @@
 import React, {useEffect} from "react";
 import {Property} from "csstype";
+import stylesheetClassName from './index.module.css'
 
 interface Props {
-	width?: number;
-	height?: number;
 	color?: string;
-	thickness?: number;
 	direction?: "left" | "right" | "up" | "down";
 	className?: string;
 	style?: React.CSSProperties;
 	onClick?: () => void;
 	isButton?: boolean;
+	thickness?: string;
 }
 
 export default function Arrow({
-								  width = 80,
-								  height = 80,
 								  color = "fff",
-								  thickness = 10,
 								  direction = "right",
-								  className,
+								  className = '',
 								  style = {},
 								  onClick,
 								  isButton = true,
+								  thickness = ".4vw",
 							  }: Props) {
 	let rotation = 0
 	if (direction === "down") {
@@ -36,12 +33,9 @@ export default function Arrow({
 	}
 	const [transform, setTransform] = React.useState<Property.Transform>(`rotate(${rotation}deg)`);
 	const inlineStyle: React.CSSProperties = {
-		width: width,
-		height: height,
-		borderTop: `${thickness}px solid #${color}`,
-		borderRight: `${thickness}px solid #${color}`,
+		borderTop: `${thickness} solid #${color}`,
+		borderRight: `${thickness} solid #${color}`,
 		transform: transform,
-		cursor: "pointer",
 		...style,
 	}
 
@@ -56,12 +50,12 @@ export default function Arrow({
 		{isButton ? (
 			<button
 				style={inlineStyle}
-				className={`reset-button ${className}`}
+				className={`${stylesheetClassName.arrow} arrow reset-button ${className}`}
 				onClick={onClick}
 			></button>) : (
 			<div
 				style={inlineStyle}
-				className={`${className}`}
+				className={`${stylesheetClassName.arrow} arrow ${className}`}
 				onClick={onClick}
 			></div>
 		)}

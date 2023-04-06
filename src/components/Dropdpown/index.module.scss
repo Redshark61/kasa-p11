@@ -1,0 +1,19 @@
+@use '../../styles/mixin';
+
+div.dropdown_container {
+	@include mixin.media {
+		width: 100%;
+		margin-inline: 0;
+		margin-top: 20px;
+
+		button {
+			border-radius: 5px;
+			padding-right: 10px;
+
+			> div > div {
+				width: 13px;
+				height: 13px;
+			}
+		}
+	}
+}
