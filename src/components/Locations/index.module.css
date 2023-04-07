@@ -1,0 +1,17 @@
+.card {
+  background-color: #F6F6F6;
+  padding-top: 55px;
+  padding-inline: 3.5vw;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .card {
+    background-color: transparent;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-inline: 0;
+    padding-top: 20px;
+  }
+}
+
+/*# sourceMappingURL=index.module.css.map */

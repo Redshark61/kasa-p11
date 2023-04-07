@@ -1,0 +1,15 @@
+.card {
+  width: 23.6vw;
+  aspect-ratio: 1;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+  .card h2 {
+    font-size: 18px;
+    padding: 15px 20px;
+  }
+}
+
+/*# sourceMappingURL=index.module.css.map */

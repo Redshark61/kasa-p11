@@ -1,0 +1,46 @@
+@media (max-width: 768px) {
+  .description {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .description h2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .description .tags {
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .host_information {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+  }
+}
+@media (max-width: 768px) {
+  .host_information h3 {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .host_information div {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  div.dropdown_container {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/*# sourceMappingURL=index.module.css.map */

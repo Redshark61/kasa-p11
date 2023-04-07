@@ -1,0 +1,15 @@
+.carrousel {
+  height: 29vw;
+}
+@media (max-width: 768px) {
+  .carrousel {
+    height: 255px;
+  }
+}
+
+.arrows > button {
+  width: 5.5vw;
+  height: 5.5vw;
+}
+
+/*# sourceMappingURL=index.module.css.map */
