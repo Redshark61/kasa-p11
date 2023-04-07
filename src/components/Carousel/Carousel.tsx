@@ -9,10 +9,9 @@ interface CarouselProps {
 
 
 export default function Carousel({pictures}: CarouselProps) {
-	const [currentImageIndex, setCurrentImageIndex] = useState(0)
-	const [isLoading, setIsLoading] = useState(true)
-	const [errorURLs, setErrorURLs] = useState<string[]>([])
-	const [hasError, setHasError] = useState(false)
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const [isLoading, setIsLoading] = useState(true);
+	const [errorURLs, setErrorURLs] = useState<string[]>([]);
 
 	const cacheImages = async (images: string[]) => {
 		const promises = images.map((image) => {
@@ -45,13 +44,7 @@ export default function Carousel({pictures}: CarouselProps) {
 		}
 	}
 
-	useEffect(() => {
-		if (errorURLs.includes(pictures[currentImageIndex])) {
-			setHasError(true)
-		} else {
-			setHasError(false)
-		}
-	}, [currentImageIndex, errorURLs, pictures])
+	const hasError = errorURLs.includes(pictures[currentImageIndex]);
 
 	if (isLoading) {
 		return <Spinner/>
