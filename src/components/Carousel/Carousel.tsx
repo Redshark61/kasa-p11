@@ -11,6 +11,8 @@ interface CarouselProps {
 export default function Carousel({pictures}: CarouselProps) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [isLoading, setIsLoading] = useState(true)
+	const [errorURLs, setErrorURLs] = useState<string[]>([])
+	const [hasError, setHasError] = useState(false)
 
 	const cacheImages = async (images: string[]) => {
 		const promises = images.map((image) => {
@@ -21,7 +23,11 @@ export default function Carousel({pictures}: CarouselProps) {
 				img.onerror = reject
 			})
 		})
-		await Promise.all(promises)
+		promises.forEach((promise) => {
+			promise.catch((error) => {
+				setErrorURLs((prevState) => [...prevState, error.target.src])
+			})
+		})
 		setIsLoading(false)
 	}
 
@@ -39,14 +45,24 @@ export default function Carousel({pictures}: CarouselProps) {
 		}
 	}
 
+	useEffect(() => {
+		if (errorURLs.includes(pictures[currentImageIndex])) {
+			setHasError(true)
+		} else {
+			setHasError(false)
+		}
+	}, [currentImageIndex, errorURLs, pictures])
+
 	if (isLoading) {
 		return <Spinner/>
 	}
 
 	return (
 		<div className={`w-full bg-pos-center relative bg-size-cover radius-25 ${className.carrousel}`}>
-			<img src={pictures[currentImageIndex]} alt={"location"} className={"w-full h-full radius-25"}
-				 style={{objectFit: "cover"}}/>
+			{hasError ?
+				<div className={"w-full h-full radius-25 flex justify-center items-center"}><h1>Error</h1></div> :
+				<img src={pictures[currentImageIndex]} alt={"location"} className={"w-full h-full radius-25"}
+					 style={{objectFit: "cover"}}/>}
 			<div
 				className={"w-full h-full absolute radius-25"}
 				style={{
