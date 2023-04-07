@@ -3,5 +3,12 @@
 .nav {
 	@include mixin.media {
 		padding-bottom: 30px;
+		text-transform: uppercase;
+
+		ul {
+			width: 100%;
+			justify-content: flex-end;
+			gap: 10px;
+		}
 	}
 }

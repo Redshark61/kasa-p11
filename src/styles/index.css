@@ -606,6 +606,10 @@
   list-style: none;
 }
 
+.text-center {
+  text-align: center;
+}
+
 a:visited {
   color: inherit;
 }
