@@ -26,6 +26,7 @@ export default function Carousel({pictures}: CarouselProps) {
 				setErrorURLs((prevState) => [...prevState, error.target.src]);
 			});
 		});
+		await Promise.all(promises).catch(() => setIsLoading(false));
 		setIsLoading(false);
 	};
 
